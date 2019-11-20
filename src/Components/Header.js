@@ -12,12 +12,13 @@ const Header = () => (
 )
 
 const StyledHeader = styled.header`
+  position: fixed;
   height: 70px;
   display: grid;
   align-content: center;
   /* justify-content: center; */
   padding-left: 25px;
-  font-size: 1.3em;
+  font-size: 1.4em;
   /* border-bottom: 0.5px solid #C9C9C9; */
   a {
     font-weight: 600;

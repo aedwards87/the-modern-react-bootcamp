@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900&display=swap');
 
+html{
+  font-size: 10px;
+}
+
 body {
   margin: 0;
   font-family: "Raleway", "Oxygen",
@@ -8,7 +12,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   letter-spacing: 0.5px;
-  font-size: 10px;
+  font-size: 1.5em;
+  font-weight: 500;
+
 }
 
 code {
@@ -20,13 +26,14 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 800;
 }
 
+
 h1 {
-  font-size: 4em;
+  font-size: 3em;
 }
 h2 {
-  font-size: 2.5em;
+  font-size: 2em;
 }
-h3 {
+/* h3 {
   font-size: 3em;
 }
 h4 {
@@ -37,9 +44,5 @@ h5 {
 }
 h6 {
   font-size: 4em;
-}
+} */
 
-p, div, span {
-  font-size: 1em;
-  font-weight: 600;
-}

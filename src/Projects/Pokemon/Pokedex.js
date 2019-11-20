@@ -19,7 +19,7 @@ class Pokedex extends Component {
   render() {
     return (
       <StyledPokedex>
-        <h1>Pokedex</h1>
+        <h1>Pokédex</h1>
         <StyledPokecardContainer>
           {this.props.pokemon.map(p => (
             <Pokecard 
@@ -49,9 +49,8 @@ const StyledPokecardContainer = styled.div`
   margin: 0 auto;
   max-width: 1500px;
   grid-template-columns: repeat(auto-fit, minmax(300px, auto));
-  /* padding: 40px; */
-  grid-gap: 20px;
-  grid-row-gap: 40px;
+  grid-gap: 30px;
+  grid-row-gap: 35px;
 `
 
 

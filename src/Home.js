@@ -16,8 +16,10 @@ const Home = () => (
 
 const StyledHome = styled.div`
   padding-left: 25px;
+  padding-top: 70px;
   display: grid;
   line-height: 1.5em;
+  font-size: 1.2em;
 `
 
 export default Home

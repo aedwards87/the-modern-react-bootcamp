@@ -6,13 +6,9 @@
   padding: 0;
 }
 
-html {
-  font-family: 'Calistoga', Helvetica, Arial, sans-serif;
-}
 
 a {
   text-decoration: none;
-  font-weight: 400;
   color: #3F86BE;
   transition: all .3s ease;
 }
