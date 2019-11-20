@@ -3,8 +3,10 @@ import styled from 'styled-components';
 
 const POKE_API = 'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/'
 
+let padToThree = (number) => (number <= 999 ? `00${number}`.slice(-3) : number)
+
 const Pokecard = ({ id, name, type, exp }) => {
-  let imgSrc = `${POKE_API}${id}.png`
+  let imgSrc = `${POKE_API}${padToThree(id)}.png`
   return (
     <StyledPokecard>
       <h2>{name}</h2>
