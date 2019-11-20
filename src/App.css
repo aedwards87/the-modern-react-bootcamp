@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Calistoga&display=swap');
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -5,7 +7,7 @@
 }
 
 html {
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: 'Calistoga', Helvetica, Arial, sans-serif;
 }
 
 a {

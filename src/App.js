@@ -1,13 +1,16 @@
 import React from 'react';
-import styled from 'styled-components';
-import { Router, Link } from "@reach/router";
-import SlotMachine from "./Pages/SlotMachine"
-import Pokemon from "./Pages/Pokemon"
-import Home from "./Pages/Home"
+import { Router } from "@reach/router";
+
+import SlotMachine from "./Projects/SlotMachine/SlotMachine"
+import Pokemon from "./Projects/Pokemon/Pokemon"
+import Home from "./Home"
+
 import Layout from "./Components/Layout"
 import { ScrollToTop } from './Components/ScrollToTop'
 
+
 import "./App.css"
+
 
 function App() {
   return (
@@ -22,5 +25,6 @@ function App() {
     </Layout>
   );
 }
+
 
 export default App;

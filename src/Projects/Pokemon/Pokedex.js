@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components';
-import Pokecard from '../Components/Pokemon/Pokecard'
+import Pokecard from './Pokecard'
 
 
 class Pokedex extends Component {
@@ -46,9 +46,12 @@ const StyledPokecardContainer = styled.div`
   display: grid;
   justify-content: center;
   justify-items: center;
-  grid-template-columns: repeat(auto-fit, 200px);
+  margin: 0 auto;
+  max-width: 1500px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, auto));
   /* padding: 40px; */
-  grid-gap: 3vmax;
+  grid-gap: 20px;
+  grid-row-gap: 40px;
 `
 
 

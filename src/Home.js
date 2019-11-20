@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from "@reach/router";
 import styled from 'styled-components';
-import Data from '../data'
+import Data from './Data/data'
 
 
 const Home = () => (

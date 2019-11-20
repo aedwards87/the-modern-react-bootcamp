@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
 // import Pokecard from '../Components/Pokemon/Pokecard'
-import Pokedex from '../Data/Pokedex'
+import Pokedex from './Pokedex'
 
 const Pokemon = () => {
   return (
