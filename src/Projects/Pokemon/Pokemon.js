@@ -13,7 +13,6 @@ const Pokemon = () => {
 
 const StyledPokedex = styled.div`
   padding: 40px;
-  /* background: pink; */
   text-align: center;
   margin: 0 auto;
 `

@@ -14,7 +14,7 @@ const Home = () => (
 )
 
 
-const StyledHome = styled.div`
+const StyledHome = styled.nav`
   padding-left: 25px;
   padding-top: 70px;
   display: grid;

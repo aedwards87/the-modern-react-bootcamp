@@ -6,8 +6,13 @@ const Data = [
   },
   {
     id: 2,
-    name: 'Pokemon',
-    url: 'pokemon'
+    name: 'Pokedex',
+    url: 'pokedex'
+  },
+  {
+    id: 3,
+    name: 'Pokegame',
+    url: 'pokegame'
   },
 ]
 

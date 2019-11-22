@@ -3,6 +3,7 @@ import { Router } from "@reach/router";
 
 import SlotMachine from "./Projects/SlotMachine/SlotMachine"
 import Pokemon from "./Projects/Pokemon/Pokemon"
+import Pokegame from "./Projects/Pokemon/Pokegame"
 import Home from "./Home"
 
 import Layout from "./Components/Layout"
@@ -19,7 +20,8 @@ function App() {
         <ScrollToTop path="/" >
           <Home exact path="/" />
           <SlotMachine exact path="/slot-machine" />
-          <Pokemon exact path="/pokemon" />
+          <Pokemon exact path="/pokedex" />
+          <Pokegame exact path="/pokegame" />
         </ScrollToTop>
       </Router>
     </Layout>
