@@ -41,6 +41,7 @@ const StyledBoxContainer = styled.div`
 const StyledPokecard = styled.div`
   padding: 30px;
   border-radius: 10px;
+  background: white;
   box-shadow: 0 3px 5px 0 #00000015, 0 10px 15px 0 #00000020;
   img {
     width: 75%;
@@ -51,7 +52,6 @@ const StyledPokecard = styled.div`
       transition: all 0.3s ease;
     }
   }
-
 `
 
 const PokemonName = styled.h2`

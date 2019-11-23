@@ -34,8 +34,11 @@ const StyledPokeGame = styled.div`
   padding: 40px;
   text-align: center;
   margin: 0 auto;
-  h1 { 
-    padding: 40px 0 20px;
+  h1 {
+    margin-top: 40px;
+  }
+  > div:first-of-type {
+    margin-bottom: 40px
   }
 `
 

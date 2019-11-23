@@ -7,14 +7,14 @@ class Pokedex extends Component {
   render() {
     const { player, pokemon, exp, isWinner } = this.props
     return (
-      <StyledPokedex>
+      <StyledPokedex isWinner={isWinner}>
         {!player ? 
           <h1>Pokedex</h1> 
           : 
           <>
-            <h2>{player}</h2>
-            <h3>{isWinner ? 'WINNER' : 'LOSER'}</h3>
-            <h4>Total xp: {exp}</h4>
+            {/* <h2>{player}</h2> */}
+            <h2>{isWinner ? 'You win' : 'You lose'}</h2>
+            <p>Total xp: {exp}</p>
           </>
         }
         <StyledPokecardContainer>
@@ -46,18 +46,21 @@ class Pokedex extends Component {
 }
 
 const StyledPokedex = styled.div`
-  h1 {
-    padding-bottom: 40px;
+  min-width: 360px;
+  box-shadow: ${props => 
+    props.isWinner === undefined ? null : props.isWinner ? 
+    '0 0px 5px 0 #51F65255, 0 0px 15px 0 #51F65280' :
+    '0 0px 5px 0 #f2242455, 0 0px 15px 0 #f2242455'
+  };
+  padding: 40px 0 60px;
+  border-radius: 20px;
+  color: rgba(138,142,156,1);
+  > h2 {
+    font-size: 2.5em;
+    color: ${props => props.isWinner ? '#51F652' : '#f22424'};
   }
-  h2 {
-    padding: 35px 0 15px;
-  }
-  h3 {
-    padding: 30px 0 10px;
-  }
-  h4 {
-    padding: 25px 0 5px;
-    font-weight: 400;
+  p {
+    margin: 10px 0 30px;
   }
 `
 
@@ -70,6 +73,12 @@ const StyledPokecardContainer = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(300px, auto));
   grid-gap: 30px;
   grid-row-gap: 35px;
+  @media (min-width: 1040px) {
+    grid-template-columns: repeat(2, minmax(300px, auto));
+  }
+  @media (min-width: 1370px) {
+    grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+  }
 `
 
 
