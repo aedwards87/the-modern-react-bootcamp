@@ -4,6 +4,8 @@ import { Router } from "@reach/router";
 import SlotMachine from "./Projects/SlotMachine/SlotMachine"
 import Pokemon from "./Projects/Pokemon/Pokemon"
 import Pokegame from "./Projects/Pokemon/Pokegame"
+import Clicker from "./Projects/Clicker/Clicker"
+import RollDice from "./Projects/Roll-dice/RollDice"
 import Home from "./Home"
 
 import Layout from "./Components/Layout"
@@ -22,6 +24,8 @@ function App() {
           <SlotMachine exact path="/slot-machine" />
           <Pokemon exact path="/pokedex" />
           <Pokegame exact path="/pokegame" />
+          <Clicker exact path="/clicker" />
+          <RollDice exact path="/roll-dice" />
         </ScrollToTop>
       </Router>
     </Layout>
