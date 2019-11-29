@@ -1,11 +1,9 @@
 import React from 'react'
 
-const Dice = () => {
+const Dice = ({ face }) => {
   return (
-    <div>
-      
-    </div>
+    <i style={{fontSize: '8em',  color: '#7795f8', margin: 20}} className={`fas fa-dice-${face}`}></i>
   )
 }
 
-export default Dice
+export default Dice;

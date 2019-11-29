@@ -1,20 +1,27 @@
 import React, { Component } from 'react'
 import styled from 'styled-components';
+import Dice from './Dice'
+import DiceSelection from './DiceSelection';
 
 class RollDice extends Component {
 
+  static defaultProps = [ 'one', 'two', 'three', 'four', 'five', 'six' ]
+
   state = {
-    input: 1, newState: { dice1: Math.floor(Math.random() * 6 + 1) }, 
+    preInput: 1, input: 1, newState: { dice1: Math.floor(Math.random() * 6)}, 
   }
 
   handleChange = (e) => {
+    // Only allow numbers
     const re = /^[0-9\b]+$/;
     if (e.target.value === '' || re.test(e.target.value)) {
       this.setState({ input: e.target.value })
     }
-    if (e.target.value > 10) {
-      return
-    }
+    // if (e.target.value.length > 1) {
+    //   if (e.keyCode !== 48) {
+    //     return false
+    //   }
+    // }
   }
 
   handleClick = (e) => {
@@ -26,7 +33,7 @@ class RollDice extends Component {
     // Loops X amount of times the users specifies within the input
     // and creates key/value pairs within the newState object for that amount
     for (let i = 0; i < this.state.input; i++) {
-      const randNum = Math.floor(Math.random() * 6 + 1)
+      const randNum = Math.floor(Math.random() * 6)
       newState[`dice${i + 1}`] = parseInt(randNum)
       // parseInt(`${i + 1}`)
     }
@@ -38,86 +45,92 @@ class RollDice extends Component {
   }
 
   keyPress = (e) => {
-    if (e.keyCode === 13) {
-      this.handleClick()
+    if (this.state.input <= 10) {
+      if (e.keyCode === 13) {
+        this.handleClick()
+      }
+    } else {
+      alert('Max number of dice 10')
     }
   }
 
   handleIncrement = (e) => {
     // Add 1 to input value
-    if (this.state.input === '') {
-      this.setState(({ input }) => ({
-        input: parseInt(0)
-      }))
-    }
+    // if (this.state.input === '') {
+    //   this.setState(() => ({
+    //     input: parseInt(0)
+    //   }))
+    // }
     this.setState(({ input }) => ({
       input: parseInt(input) + 1
     }))
   }
 
-
   handleDecrement = (e) => {
     // Remove 1 to input value
+    if (this.state.input <= 10) {
+      this.setState(({ input }) => ({
+        input: parseInt(input) - 1
+      }))
+    } else if (this.state.input > 10){
+      this.setState(() => ({
+        input: parseInt(11)
+      }))}
     this.setState(({ input }) => ({
       input: parseInt(input) - 1
     }))
   }
 
-
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate = () => {
     // console.log(Object.keys(this.state.newState).length)
-    if (this.state.input > Object.keys(this.state.newState).length) {
-      this.handleClick()
-    } else if (this.state.input < Object.keys(this.state.newState).length) {
-      this.handleClick()
+    if (this.state.input <= 10) {
+      if (this.state.input > Object.keys(this.state.newState).length) {
+        this.handleClick()
+      } else if (this.state.input < Object.keys(this.state.newState).length) {
+        this.handleClick()
+      }
+    } else if (this.state.input > 10) {
+      this.setState(() => ({
+        input: parseInt(10)
+      }))
     }
+    
+
+    // Using preInput state, could maybe determine whether input is > 10, if so error message
+    // if (this.state.input > 10) {
+
+    // }
+
   }
+
+  // shouldComponentUpdate = () => {
+
+  // }
+  
 
   render() {  
     return (
       <StyledRollDice>
 
         <h1>Select number of dices</h1>
-
+        <p>(Max number of dice: 10)</p>
         {/* input for number of dices */}
-
-        <div>
-          <button 
-            onClick={this.handleDecrement} 
-            disabled={this.state.input <= 1}
-          >
-            &larr;
-          </button>
-          <StyledInput 
-            type='text'
-            value={this.state.input} 
-            onChange={this.handleChange} 
-            onKeyDown={this.keyPress}
-          />
-          <button 
-            onClick={this.handleIncrement} 
-            disabled={this.state.input >= 10}
-          >
-            &rarr;
-          </button>
-        </div>
+        <DiceSelection 
+          input={this.state.input}
+          handleChange={this.handleChange} 
+          handleIncrement={this.handleIncrement} 
+          handleDecrement={this.handleDecrement} 
+          keyDown={this.keyPress} 
+        />
 
         <StyledDiceContainer>
           {this.state.newState && 
             Object.values(this.state.newState).map((value, i) => 
-              <StyledDice 
-                key={i}
-                // class={`fas dice-`}
-              >
-                {value}
-              </StyledDice>
+              <Dice face={this.props[value]} key={i}/>
             ) 
           }
         </StyledDiceContainer>
-        
-        
 
-        {/* {console.log(this.state.newState)} */}
       </StyledRollDice>
     )
   }
@@ -173,26 +186,8 @@ const StyledRollDice = styled.div`
     box-shadow: none;
   }
 
-
   h1 {
     padding: 40px 0px 20px;
-  }
-`
-
-const StyledInput = styled.input`
-  text-align: center;
-  height: 51px;
-  margin-top: 2px;
-  border-radius: 4px;
-  width: 80px;
-  border: 1px solid #7795f8;
-  box-shadow: inset 0 2px 3px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
-  outline: none;
-  color: #7795f8;
-  font-size: 1.3em;
-  font-weight: 600;
-  :hover {
-    box-shadow: inset 0 3px 5px rgba(50,50,93,.21), 0 2px 3px rgba(0,0,0,.15);
   }
 `
 
@@ -201,18 +196,10 @@ const StyledDiceContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  max-width: 1000px;
+  max-width: 800px;
   grid-gap: 20px;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   /* border: 2px solid pink; */
-`
-
-const StyledDice = styled.div`
-  background: yellow;
-  width: 100px;
-  text-align: center;
-  padding: 20px;
-  margin: 10px;
 `
 
 
